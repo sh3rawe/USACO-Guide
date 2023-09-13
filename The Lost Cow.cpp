@@ -33,51 +33,6 @@ const double pi = 3.1415926535897;
 const ll mod=1000000007, oo = 100000000000000000;
 const ll N = 1e18;
 
-ll gcd(ll a, ll b){
-    while(b != 0){
-        ll a2 = a; // stores the old version of a
-        a = b;
-        b = a2%b;
-    }
-    return a;
-}
-
-ll lcm(ll a, ll b){
-    return (a*b) / gcd(a,b);
-}
-
-ll SumofRanges(ll start, ll end){
-    if(start > end)
-        swap(start, end);
-    ll sum =  (end*(end+1))/2 - (start*(start+1))/2;
-    sum += start;  // in case you want the sum inclusive
-    return sum;
-}
-
-bool is_prime(ll n){
-    ll r = n/2;
-    if(n<2)
-        return false;
-    if(n == 2)
-        return true;
-    for(int i=2;i*i<=n;++i) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
-}
-
-bool cmp(pair<int, int> p1 ,pair <int, int> p2)
-{
-    if(p1.S != p2.S)
-        return p1.S > p2.S;
-    return p1.F < p2.F;
-}
-
-bool cmp_n(ll a, ll b){
-    return a > b;
-}
-
 void setIO(string s) {
     freopen((s + ".in").c_str(), "r", stdin);
     freopen((s + ".out").c_str(), "w", stdout);
